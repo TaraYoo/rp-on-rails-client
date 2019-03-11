@@ -18,26 +18,27 @@
       </nav>
       <main>
         <div class="landing-forms container">
+          <p class="landing-alerts"></p>
           <form class="col s12" id="sign-up-form">
             <div class="row">
               <div class="input-field col s12">
-                <input type="email" id="sign-up-email" class="validate">
+                <input name="credentials[email]" type="email" id="sign-up-email" class="validate">
                 <label for="sign-up-email">Email</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input type="password" id="sign-up-password" class="validate">
+                <input type="password" id="sign-up-password" class="validate" name="credentials[password]">
                 <label for="sign-up-password">Pasword</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input type="password" id="password-confirmation" class="validate">
+                <input type="password" id="password-confirmation" class="validate" name="credentials[password_confirmation]">
                 <label for="password-confirmation">Password Confirmation</label>
               </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <button class="btn waves-effect waves-light" type="submit" name="action" id="sign-up-button">Sign Up
               <i class="material-icons right">send</i></button>
           </form>
           <br>
@@ -54,7 +55,7 @@
                 <label for="sign-in-password">Pasword</label>
               </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <button class="btn waves-effect waves-light" type="submit" name="action">Sign In
             <i class="material-icons right">send</i></button>
           </form>
           <br>

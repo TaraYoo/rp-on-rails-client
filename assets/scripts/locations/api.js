@@ -22,6 +22,16 @@ const getLocations = responseData => {
   })
 }
 
+const getALocation = id => {
+  return $.ajax({
+    url: config.apiUrl + '/locations/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const deleteLocation = id => {
   return $.ajax({
     url: config.apiUrl + '/locations/' + id,
@@ -47,5 +57,6 @@ module.exports = {
   addLocation,
   getLocations,
   deleteLocation,
-  updateLocation
+  updateLocation,
+  getALocation
 }

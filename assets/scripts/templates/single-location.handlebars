@@ -1,0 +1,39 @@
+
+<div class="row">
+  <div class="col s12 m6" id="only-location-{{location.id}}">
+    <p>{{location.id}}: {{location.name}}</p>
+    <p>{{location.plot}}</p>
+    <p>{{location.outcome}}</p>
+    <p>Players visited: {{location.visited}}</p>
+    <p>Current player location: {{location.has_players}}</p>
+    <button class="btn red darken-4 delete-btn" id="delete-{{location.id}}">Delete Location</button>
+    <button class="btn" id="get-profile">Go back to locations list</button>
+  </div>
+
+  <div class="col s12 m6">
+    <form class="col s12 container update-location-form" id="update-location-form-{{location.id}}">
+      <p>Update {{location.name}}</p>
+      <p class="update-location-alert"></p>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" class="validate" name="location[plot]">
+          <label for="plot">New Plot</label>
+        </div>
+        <div class="input-field col s12">
+          <input type="text" class="validate" name="location[outcome]">
+          <label for="outcome">New Outcome</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text" class="validate" name="location[visited]">
+          <label for="visited">Did players come here?</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text" class="validate" name="location[has_players]">
+          <label for="has_players">Are players here?</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit">Submit
+        <i class="material-icons right">send</i></button>
+    </form>
+  </div>
+</div>

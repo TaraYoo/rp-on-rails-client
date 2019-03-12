@@ -2,6 +2,7 @@ const commonUi = require('../common-ui.js')
 const api = require('./api.js')
 const store = require('../store.js')
 const updateLocationFormTemplate = require('../templates/update-location-form.handlebars')
+const singleLocationTemplate = require('../templates/single-location.handlebars')
 
 const addLocationPressed = () => {
   // empty all dynamic content
@@ -42,6 +43,22 @@ const addLocationSuccess = () => {
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
     .catch(commonUi.getLocationsFailure)
+  $('.location-cards').show()
+}
+
+const gotALocationSuccess = responseData => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
+  // hide all unrelated content
+  $('.landing-forms').hide()
+  $('#change-password-form').hide()
+  $('.location-cards').hide()
+  $('#create-location-form').hide()
+  // show the single location
+  console.log(responseData)
+  const singleLocationHtml = singleLocationTemplate({location: responseData.location})
+  $('.location-cards').append(singleLocationHtml)
   $('.location-cards').show()
 }
 
@@ -127,6 +144,24 @@ const updateLocationFailure = () => {
   $('.location-cards').show()
 }
 
+const gotALocationFailure = () => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
+  // hide all unrelated content
+  $('.landing-forms').hide()
+  $('#change-password-form').hide()
+  $('#create-location-form').hide()
+
+  // create user message
+  $('.location-alerts').text('Something went wrong. Please try again')
+  // go back to initial profile page
+  api.getLocations(store)
+    .then(commonUi.getLocationsSuccess)
+    .catch(commonUi.getLocationsFailure)
+  $('.location-cards').show()
+}
+
 module.exports = {
   addLocationPressed,
   addLocationSuccess,
@@ -135,5 +170,7 @@ module.exports = {
   deleteLocationFailure,
   updateLocationPressed,
   updateLocationSuccess,
-  updateLocationFailure
+  updateLocationFailure,
+  gotALocationSuccess,
+  gotALocationFailure
 }

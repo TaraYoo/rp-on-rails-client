@@ -1,6 +1,9 @@
 const api = require('./api.js')
+const locationApi = require('../locations/api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
+const store = require('../store.js')
+const commonUi = require('../common-ui.js')
 
 const onAddLocationPressed = event => {
   event.preventDefault()
@@ -16,6 +19,25 @@ const onAddLocation = event => {
   api.addLocation(formData)
     .then(ui.addLocationSuccess)
     .catch(ui.addLocationFailure)
+}
+
+const onGetALocation = event => {
+  event.preventDefault()
+
+  const targeted = event.target.id
+  const targetNum = parseInt(targeted.split('-')[1])
+
+  api.getALocation(targetNum)
+    .then(ui.gotALocationSuccess)
+    .catch(ui.gotALocationFailure)
+}
+
+const getAllLocations = event => {
+  event.preventDefault()
+
+  locationApi.getLocations(store)
+    .then(commonUi.getLocationsSuccess)
+    .catch(commonUi.getLocationsFailure)
 }
 
 const onDeleteLocation = event => {
@@ -40,13 +62,20 @@ const onUpdateLocationPressed = event => {
 const onUpdateLocation = event => {
   event.preventDefault()
 
+  const form = event.target
+  const formData = getFormFields(form)
+  const apiData = { location: {} }
+
   const targeted = event.target.id
   const targetNum = parseInt(targeted.split('-')[3])
 
-  const form = event.target
-  const formData = getFormFields(form)
+  for (const key in formData.location) {
+    if (formData.location[key] !== '') {
+      apiData.location[key] = formData.location[key]
+    }
+  }
 
-  api.updateLocation(targetNum, formData)
+  api.updateLocation(targetNum, apiData)
     .then(ui.updateLocationSuccess)
     .catch(ui.updateLocationFailure)
 }
@@ -55,9 +84,11 @@ const addHandlers = () => {
   // $('body').on('click', tempTest)
   $('#add-location-button').on('click', onAddLocationPressed)
   $('#create-location-form').on('submit', onAddLocation)
+  $('.location-cards').on('click', '.get-details', onGetALocation)
   $('.location-cards').on('click', '.delete-btn', onDeleteLocation)
+  $('.location-cards').on('click', '#get-profile', getAllLocations)
   $('.location-cards').on('click', '.update-btn', onUpdateLocationPressed)
-  $('.forms-to-show').on('submit', '.update-location-form', onUpdateLocation)
+  $('.location-cards').on('submit', '.update-location-form', onUpdateLocation)
 }
 
 module.exports = {

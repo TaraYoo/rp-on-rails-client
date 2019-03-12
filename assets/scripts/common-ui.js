@@ -7,6 +7,7 @@ const emptyDynamic = () => {
   $('.landing-alerts').text('')
   $('.location-alerts').text('')
   $('.forms-to-show').empty()
+  $('.location-cards').empty()
 }
 
 const getLocationsSuccess = responseData => {

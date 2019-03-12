@@ -1,28 +1,27 @@
 {{#each locations as |location| }}
 
   <div class="col s12 m4">
-    <div class="card blue-grey darken-1 location">
+    <div class="card hoverable blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">{{location.name}}</span>
-        <p>{{location.plot}}</p>
-        <p>Visited?: {{location.visited}}</p>
-        <p>Current Player Location: {{location.has_players}}</p>
+        <p class="truncate">{{location.plot}}</p>
+        <p>
+          {{#if location.visited}}
+          Players visited and {{location.outcome}}
+          {{else}}
+          Players haven't been here yet
+          {{/if}}
+        </p>
+        <p>
+          {{#if location.has_players}}
+          <strong>Players are here</strong>
+          {{/if}}
+        </p>
       </div>
       <div class="card-action">
-        <form class="location-status">
-          <button class="btn delete-btn" id="delete-{{location.id}}">Delete Location</button>
-          <button class="btn update-btn" id="update-{{location.id}}">Update Location</button>
-          <label>
-            <input type="checkbox"
-            class="{{#if location.visited}}filled-in{{else}}{{/if}}">
-            <span>Visited?</span>
-          </label>
-          <label>
-            <input type="checkbox"
-            class="{{#if location.has_players}}filled-in{{else}}{{/if}}">
-            <span>Current party location</span>
-          </label>
-        </form>
+        <a class="get-details" id="location-{{location.id}}">
+          Click here to see location details, update location, or delete
+        </a>
       </div>
     </div>
   </div>

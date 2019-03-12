@@ -37,12 +37,27 @@ const onUpdateLocationPressed = event => {
   ui.updateLocationPressed(targetNum)
 }
 
+const onUpdateLocation = event => {
+  event.preventDefault()
+
+  const targeted = event.target.id
+  const targetNum = parseInt(targeted.split('-')[3])
+
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.updateLocation(targetNum, formData)
+    .then(ui.updateLocationSuccess)
+    .catch(ui.updateLocationFailure)
+}
+
 const addHandlers = () => {
   // $('body').on('click', tempTest)
   $('#add-location-button').on('click', onAddLocationPressed)
   $('#create-location-form').on('submit', onAddLocation)
   $('.location-cards').on('click', '.delete-btn', onDeleteLocation)
   $('.location-cards').on('click', '.update-btn', onUpdateLocationPressed)
+  $('.forms-to-show').on('submit', '.update-location-form', onUpdateLocation)
 }
 
 module.exports = {

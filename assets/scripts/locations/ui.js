@@ -63,6 +63,23 @@ const deleteLocationSuccess = () => {
   $('.location-cards').show()
 }
 
+const updateLocationSuccess = responseData => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
+  // hide all unrelated content
+  $('.landing-forms').hide()
+  $('#change-password-form').hide()
+  $('#create-location-form').hide()
+
+  console.log(responseData)
+  // go back to initial profile page
+  api.getLocations(store)
+    .then(commonUi.getLocationsSuccess)
+    .catch(commonUi.getLocationsFailure)
+  $('.location-cards').show()
+}
+
 const addLocationFailure = () => {
   // empty all dynamic content
   commonUi.emptyDynamic()
@@ -92,11 +109,31 @@ const deleteLocationFailure = () => {
   $('.location-cards').show()
 }
 
+const updateLocationFailure = () => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
+  // hide all unrelated content
+  $('.landing-forms').hide()
+  $('#change-password-form').hide()
+  $('#create-location-form').hide()
+
+  // create user message
+  $('.update-location-alert').text('Something went wrong, and your location was not updated. Please try again')
+  // go back to initial profile page
+  api.getLocations(store)
+    .then(commonUi.getLocationsSuccess)
+    .catch(commonUi.getLocationsFailure)
+  $('.location-cards').show()
+}
+
 module.exports = {
   addLocationPressed,
   addLocationSuccess,
   addLocationFailure,
   deleteLocationSuccess,
   deleteLocationFailure,
-  updateLocationPressed
+  updateLocationPressed,
+  updateLocationSuccess,
+  updateLocationFailure
 }

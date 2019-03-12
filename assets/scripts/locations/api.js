@@ -32,8 +32,20 @@ const deleteLocation = id => {
   })
 }
 
+const updateLocation = (id, formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/locations/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+
 module.exports = {
   addLocation,
   getLocations,
-  deleteLocation
+  deleteLocation,
+  updateLocation
 }

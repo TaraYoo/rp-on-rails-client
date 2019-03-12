@@ -14,7 +14,14 @@
     </head>
     <body>
       <nav class="blue darken-4">
-        <div class="nav-wrapper container">RP on Rails</div>
+        <div class="nav-wrapper container">
+          <a class="brand-logo left">RP on Rails</a>
+          <ul class="after-sign-in-options right">
+            <li><a id="change-password-btn">change password</a></li>
+            <li><a id="sign-out-button">sign out</a></li>
+            <li><a id="add-location-button">add location</a></li>
+          </ul>
+        </div>
       </nav>
       <main>
         <div class="landing-forms container">
@@ -45,13 +52,13 @@
           <form class="col s12" id="sign-in-form">
             <div class="row">
               <div class="input-field col s12">
-                <input type="email" id="sign-in-email" class="validate">
+                <input type="email" id="sign-in-email" class="validate" name="credentials[email]">
                 <label for="sign-in-email">Email</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input type="password" id="sign-in-password" class="validate">
+                <input type="password" id="sign-in-password" class="validate" name="credentials[password]">
                 <label for="sign-in-password">Pasword</label>
               </div>
             </div>
@@ -60,25 +67,28 @@
           </form>
           <br>
         </div>
-        <div class="after-sign-in-forms container">
-          <form class="col s12" id="change-password-form">
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="password" id="old-password" class="validate">
-                <label for="old-password">Old Password</label>
-              </div>
+        <div class="forms-to-show container">
+
+        </div>
+        <form class="col s12 container" id="change-password-form">
+          <p class="user-alert"></p>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" id="old-password" class="validate" name="passwords[old]">
+              <label for="old-password">Old Password</label>
             </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="password" id="new-pasword" class="validate">
-                <label for="new-pasword">New Password</label>
-              </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" id="new-pasword" class="validate" name="passwords[new]">
+              <label for="new-pasword">New Password</label>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          </div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right">send</i></button>
           </form>
           <br>
-          <form class="col s12" id="create-location-form">
+          <form class="col s12 container" id="create-location-form">
             <div class="row">
               <div class="input-field col s12">
                 <input type="text" id="name" class="validate">
@@ -98,10 +108,8 @@
               </div>
             </div>
             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i></button>
-          </form>
-          <br>
-        </div>
+              <i class="material-icons right">send</i></button>
+            </form>
         <div class="container location-cards">
           <div class="row">
             <div class="col s12 m4">

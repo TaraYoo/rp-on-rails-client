@@ -32,7 +32,7 @@ const addHandlers = () => {
   // $('body').on('click', tempTest)
   $('#add-location-button').on('click', onAddLocationPressed)
   $('#create-location-form').on('submit', onAddLocation)
-  $('.location-cards').on('click', '.card', onDeleteLocation)
+  $('.location-cards').on('click', '.delete-btn', onDeleteLocation)
 }
 
 module.exports = {

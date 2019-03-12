@@ -12,6 +12,17 @@ const addLocation = formData => {
   })
 }
 
+const getLocations = responseData => {
+  return $.ajax({
+    url: config.apiUrl + '/locations',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + responseData.user.token
+    }
+  })
+}
+
 module.exports = {
-  addLocation
+  addLocation,
+  getLocations
 }

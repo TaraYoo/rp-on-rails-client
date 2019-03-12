@@ -13,8 +13,6 @@ const onAddLocation = event => {
   const form = event.target
   const formData = getFormFields(form)
 
-  console.log(formData)
-
   api.addLocation(formData)
     .then(ui.addLocationSuccess)
     .catch(ui.addLocationFailure)

@@ -10,8 +10,6 @@ const onSignUp = event => {
   const form = event.target
   const formData = getFormFields(form)
 
-  console.log(formData)
-
   api.signUp(formData)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -22,8 +20,6 @@ const onSignIn = event => {
 
   const form = event.target
   const formData = getFormFields(form)
-
-  console.log(formData)
 
   api.signIn(formData)
     .then(ui.signInSuccess)
@@ -58,6 +54,7 @@ const addHandlers = () => {
   // $('body').on('click', tempTest)
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
+  // $('#sign-in-form').on('submit', onGetLocations)
   $('#change-password-btn').on('click', changePasswordRequested)
   $('#change-password-form').on('submit', onChangePassword)
   $('#sign-out-button').on('click', onSignOut)

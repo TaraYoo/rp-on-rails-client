@@ -7,6 +7,16 @@ const emptyDynamic = () => {
   $('.landing-alerts').text('')
 }
 
+const getLocationsSuccess = responseData => {
+  console.log(responseData)
+}
+
+const getLocationsFailure = () => {
+  console.log('failure')
+}
+
 module.exports = {
-  emptyDynamic
+  emptyDynamic,
+  getLocationsSuccess,
+  getLocationsFailure
 }

@@ -2,6 +2,7 @@
 
 const commonUi = require('../common-ui.js')
 const store = require('../store.js')
+const locationApi = require('../locations/api.js')
 
 const signUpSuccess = () => {
   commonUi.emptyDynamic()
@@ -17,6 +18,8 @@ const signUpSuccess = () => {
 
 const signInSuccess = responseData => {
   commonUi.emptyDynamic()
+  // get locations data
+
   // hide unrelated content
   $('.landing-forms').hide()
   $('#change-password-form').hide()
@@ -27,6 +30,9 @@ const signInSuccess = responseData => {
   $('.after-sign-in-options').show()
   // store user data
   store.user = responseData.user
+  locationApi.getLocations(responseData)
+    .then(commonUi.getLocationsSuccess)
+    .catch(commonUi.getLocationsFailure)
 }
 
 const signOutSuccess = () => {

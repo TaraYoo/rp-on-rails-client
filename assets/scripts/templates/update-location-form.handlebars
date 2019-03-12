@@ -1,0 +1,28 @@
+<form class="col s12 container" id="update-location-form">
+  <p>Update Location {{targetNum}}</p>
+  <p class="create-location-alert"></p>
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="text" class="validate" name="location[plot]">
+      <label for="plot">New Plot</label>
+    </div>
+    <div class="input-field col s12">
+      <input type="text" class="validate" name="location[outcome]">
+      <label for="outcome">New Outcome</label>
+    </div>
+    <div class="input-field col s6">
+      <label>
+        <input type="checkbox" name="location[visited]">
+        <span>Players visited?</span>
+      </label>
+    </div>
+    <div class="input-field col s6">
+      <label>
+        <input type="checkbox" name="location[has_players]">
+        <span>Are players here?</span>
+      </label>
+    </div>
+  </div>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i></button>
+  </form>

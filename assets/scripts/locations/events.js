@@ -28,11 +28,21 @@ const onDeleteLocation = event => {
     .catch(ui.deleteLocationFailure)
 }
 
+const onUpdateLocationPressed = event => {
+  event.preventDefault()
+
+  const targeted = event.target.id
+  const targetNum = parseInt(targeted.split('-')[1])
+
+  ui.updateLocationPressed(targetNum)
+}
+
 const addHandlers = () => {
   // $('body').on('click', tempTest)
   $('#add-location-button').on('click', onAddLocationPressed)
   $('#create-location-form').on('submit', onAddLocation)
   $('.location-cards').on('click', '.delete-btn', onDeleteLocation)
+  $('.location-cards').on('click', '.update-btn', onUpdateLocationPressed)
 }
 
 module.exports = {

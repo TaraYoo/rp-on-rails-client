@@ -1,6 +1,7 @@
 const commonUi = require('../common-ui.js')
 const api = require('./api.js')
 const store = require('../store.js')
+const updateLocationFormTemplate = require('../templates/update-location-form.handlebars')
 
 const addLocationPressed = () => {
   // empty all dynamic content
@@ -12,6 +13,21 @@ const addLocationPressed = () => {
   $('.location-cards').hide()
   // show the sign-up-form
   $('#create-location-form').show()
+}
+
+const updateLocationPressed = (targetNum) => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
+  // hide all unrelated content
+  $('.landing-forms').hide()
+  $('#change-password-form').hide()
+  $('.location-cards').hide()
+  $('#create-location-form').hide()
+  // show the update-location-form
+  const updateFormHtml = updateLocationFormTemplate({targetNum: targetNum})
+  $('.forms-to-show').append(updateFormHtml)
+  $('.forms-to-show').show()
 }
 
 const addLocationSuccess = () => {
@@ -81,5 +97,6 @@ module.exports = {
   addLocationSuccess,
   addLocationFailure,
   deleteLocationSuccess,
-  deleteLocationFailure
+  deleteLocationFailure,
+  updateLocationPressed
 }

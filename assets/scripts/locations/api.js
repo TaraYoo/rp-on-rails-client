@@ -1,17 +1,17 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const createLocation = () => {
+const addLocation = formData => {
   return $.ajax({
     url: config.apiUrl + '/locations',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {}
+    data: formData
   })
 }
 
 module.exports = {
-  createLocation
+  addLocation
 }

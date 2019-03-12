@@ -5,6 +5,7 @@ const locationCardsTemplate = require('./templates/location-cards.handlebars')
 const emptyDynamic = () => {
   $('form').trigger('reset')
   $('.landing-alerts').text('')
+  $('.location-alerts').text('')
 }
 
 const getLocationsSuccess = responseData => {

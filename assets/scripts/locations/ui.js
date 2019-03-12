@@ -1,5 +1,6 @@
-const store = require('../store.js')
 const commonUi = require('../common-ui.js')
+const api = require('./api.js')
+const store = require('../store.js')
 
 const addLocationPressed = () => {
   // empty all dynamic content
@@ -21,7 +22,10 @@ const addLocationSuccess = () => {
   $('.landing-forms').hide()
   $('#change-password-form').hide()
   $('#create-location-form').hide()
-  // go back to initial sign in page
+  // go back to initial profile page
+  api.getLocations(store)
+    .then(commonUi.getLocationsSuccess)
+    .catch(commonUi.getLocationsFailure)
   $('.location-cards').show()
 }
 

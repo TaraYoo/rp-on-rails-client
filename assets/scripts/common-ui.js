@@ -1,6 +1,5 @@
 'use strict'
 
-const store = require('./store.js')
 const locationCardsTemplate = require('./templates/location-cards.handlebars')
 
 const emptyDynamic = () => {
@@ -11,6 +10,7 @@ const emptyDynamic = () => {
 const getLocationsSuccess = responseData => {
   responseData.locations.forEach(function (data) { console.log(data) })
   const locationCardsHtml = locationCardsTemplate({ locations: responseData.locations })
+  $('.location-cards').empty()
   $('.location-cards').append(locationCardsHtml)
 }
 

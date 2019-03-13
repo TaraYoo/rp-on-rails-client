@@ -84,7 +84,7 @@ const addHandlers = () => {
   $('.authorized-form').on('submit', '#create-location-form', onAddLocation)
   $('.welcome-cards').on('click', '.get-details', onGetALocation)
   $('.welcome-cards').on('click', '.delete-location', onDeleteLocation)
-  $('.location-cards').on('click', '#get-profile', getAllLocations)
+  $('.welcome-cards').on('click', '#get-profile', getAllLocations)
   $('.location-cards').on('click', '.update-btn', onUpdateLocationPressed)
   $('.location-cards').on('submit', '.update-location-form', onUpdateLocation)
 }

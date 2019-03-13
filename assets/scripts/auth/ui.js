@@ -6,6 +6,7 @@ const signUpForm = require('../templates/sign-up-form.handlebars')
 const signInForm = require('../templates/sign-in-form.handlebars')
 const welcomeTemplate = require('../templates/welcome-page.handlebars')
 const authorizedOptions = require('../templates/post-sign-menu.handlebars')
+const changePasswordForm = require('../templates/change-password-form.handlebars')
 
 const signUpRequested = () => {
   commonUi.emptyDynamic()
@@ -81,16 +82,11 @@ const changePasswordRequest = () => {
   // empty all dynamic content
   commonUi.emptyDynamic()
 
-  // hide all unrelated content
-  $('.location-cards').hide()
-  $('.landing-forms').hide()
-  $('#create-location-form').hide()
-
+  // Change password template
+  const changePasswordHtml = changePasswordForm()
   // Show the change password form
-  $('#change-password-form').show()
-
-  // Show post-sign-in menus
-  $('.post-sign-in').show()
+  $('.authorized-form').empty()
+  $('.authorized-form').append(changePasswordHtml)
 }
 
 const changePasswordSuccess = () => {

@@ -65,7 +65,7 @@ const addHandlers = () => {
   $('#request-sign-in-btn').on('click', onSignInRequested)
   $('.requested-form').on('submit', '#sign-up-form', onSignUp)
   $('.requested-form').on('submit', '#sign-in-form', onSignIn)
-  $('#change-password-btn').on('click', changePasswordRequested)
+  $('.nav-wrapper').on('click', '#change-password-btn', changePasswordRequested)
   $('#change-password-form').on('submit', onChangePassword)
   $('.nav-wrapper').on('click', '#sign-out-button', onSignOut)
 }

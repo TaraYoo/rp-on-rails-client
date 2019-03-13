@@ -2,6 +2,7 @@
 
 const welcomeCardsTemplate = require('./templates/welcome-page.handlebars')
 const store = require('./store.js')
+const bokbulbokCardsTemplate = require('./templates/bokbulbok-cards.handlebars')
 
 const emptyDynamic = () => {
   $('form').trigger('reset')
@@ -26,11 +27,26 @@ const getLocationsSuccess = responseData => {
   // update store.user.locations per each pull
 }
 
+const getBokbulboksSuccess = responseData => {
+  store.user.bokbulboks = responseData.bokbulboks
+
+  const bokbulbokCardsHtml = bokbulbokCardsTemplate({
+    bokbulboks: store.user.bokbulboks
+  })
+
+  console.log(store.user.bokbulboks)
+  console.log(responseData.bokbulboks)
+
+  $('.welcome-cards').empty()
+  $('.welcome-cards').append(bokbulbokCardsHtml)
+}
+
 const getLocationsFailure = () => {
 }
 
 module.exports = {
   emptyDynamic,
   getLocationsSuccess,
+  getBokbulboksSuccess,
   getLocationsFailure
 }

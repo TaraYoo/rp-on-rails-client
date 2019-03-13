@@ -3,13 +3,14 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
+const commonUi = require('../common-ui.js')
 
 const onGetBokbulboks = event => {
   event.preventDefault()
 
   api.getBokbulboks(store)
-    .then(ui.getBokbulboksSuccess)
-    .catch(ui.getBokbulboksFailure)
+    .then(commonUi.getBokbulboksSuccess)
+    .catch(commonUi.getLocationsFailure)
 }
 
 const getRandomBokbulbok = event => {
@@ -23,7 +24,7 @@ const getRandomBokbulbok = event => {
 }
 
 const addHandlers = () => {
-  $('#get-bokbulboks-button').on('click', onGetBokbulboks)
+  $('.nav-wrapper').on('click', '#get-bokbulboks-button', onGetBokbulboks)
   $('.location-cards').on('click', '#get-bokbulbok', getRandomBokbulbok)
 }
 

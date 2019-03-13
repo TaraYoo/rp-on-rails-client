@@ -4,12 +4,30 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
 const commonUi = require('../common-ui.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onGetBokbulboks = event => {
   event.preventDefault()
 
   api.getBokbulboks(store)
     .then(commonUi.getBokbulboksSuccess)
+    .catch(commonUi.getLocationsFailure)
+}
+
+const onAddBokbulbokPressed = event => {
+  event.preventDefault()
+
+  ui.addBokbulbokPressed()
+}
+
+const onAddBokbulbok = event => {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.addBokbulbok(formData)
+    .then(ui.addBokbulbokSuccess)
     .catch(commonUi.getLocationsFailure)
 }
 
@@ -25,6 +43,8 @@ const getRandomBokbulbok = event => {
 
 const addHandlers = () => {
   $('.nav-wrapper').on('click', '#get-bokbulboks-button', onGetBokbulboks)
+  $('.nav-wrapper').on('click', '#add-bokbulbok-button', onAddBokbulbokPressed)
+  $('.authorized-form').on('submit', '#create-bokbulbok-form', onAddBokbulbok)
   $('.location-cards').on('click', '#get-bokbulbok', getRandomBokbulbok)
 }
 

@@ -11,7 +11,18 @@ const getBokbulboks = () => {
   })
 }
 
-const getABokbulBok = (id) => {
+const addBokbulbok = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/bokbulboks',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+
+const getABokbulBok = id => {
   return $.ajax({
     url: config.apiUrl + '/bokbulboks/' + id,
     method: 'GET',
@@ -23,5 +34,6 @@ const getABokbulBok = (id) => {
 
 module.exports = {
   getBokbulboks,
-  getABokbulBok
+  getABokbulBok,
+  addBokbulbok
 }

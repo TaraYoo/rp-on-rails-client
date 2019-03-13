@@ -12,6 +12,12 @@ const emptyDynamic = () => {
   $('.location-cards').empty()
 }
 
+const storeBokbulboks = responseData => {
+  store.user.bokbulboks = responseData.bokbulboks
+  console.log(responseData.bokbulboks)
+  console.log(store.user.bokbulboks)
+}
+
 const getLocationsSuccess = responseData => {
   store.user.locations = responseData.locations
 
@@ -48,5 +54,6 @@ module.exports = {
   emptyDynamic,
   getLocationsSuccess,
   getBokbulboksSuccess,
-  getLocationsFailure
+  getLocationsFailure,
+  storeBokbulboks
 }

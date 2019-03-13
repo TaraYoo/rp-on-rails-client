@@ -1,16 +1,16 @@
 {{#each bokbulboks as |bokbulbok| }}
 
   <div class="col s12 m4">
-    <div class="card hoverable blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">{{bokbulbok.id}}</span>
-        <p class="truncate">Description: {{bokbulbok.description}}</p>
+    <div class="card bokbulbok-used-{{bokbulbok.used}}">
+      <div class="card-content">
+        <p>{{bokbulbok.id}}: {{bokbulbok.description}}</p>
         <p>Used? {{bokbulbok.used}}</p>
       </div>
-      <div class="card-action">
-        <a class="get-details" id="bokbulbok-{{bokbulbok.id}}">
-          Click here to see details, update, or delete
-        </a>
+      <div class="card-tabs">
+        <ul class="tabs tabs-fixed-width">
+          <li class="tab"><a id="update-bokbulbok-{{bokbulbok.id}}">Update</a></li>
+          <li class="tab"><a id="delete-bokbulbok-{{bokbulbok.id}}">Delete</a></li>
+        </ul>
       </div>
     </div>
   </div>

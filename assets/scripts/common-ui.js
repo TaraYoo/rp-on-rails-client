@@ -14,8 +14,6 @@ const emptyDynamic = () => {
 
 const storeBokbulboks = responseData => {
   store.user.bokbulboks = responseData.bokbulboks
-  console.log(responseData.bokbulboks)
-  console.log(store.user.bokbulboks)
 }
 
 const getLocationsSuccess = responseData => {

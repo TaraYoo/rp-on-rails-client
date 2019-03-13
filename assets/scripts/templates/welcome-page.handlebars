@@ -1,0 +1,20 @@
+<h2 class="header center grey-text">Welcome {{name}}</h2>
+
+{{#each locations as |location| }}
+  <div class="col s12 m4">
+    <div class="card hoverable blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">{{location.name}}</span>
+        <p class="truncate">Plot: {{location.plot}}</p>
+        <p>Outcome: {{location.outcome}}</p>
+        <p>Players visitd? {{location.visited}}</p>
+        <p>Are players here? {{location.has_players}}</p>
+      </div>
+      <div class="card-action">
+        <a class="get-details" id="location-{{location.id}}">
+          Click here to see location details, update location, or delete
+        </a>
+      </div>
+    </div>
+  </div>
+{{/each}}

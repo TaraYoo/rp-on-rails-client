@@ -1,15 +1,15 @@
 {{#each bokbulboks as |bokbulbok| }}
 
   <div class="col s12 m4">
-    <div class="card bokbulbok-used-{{bokbulbok.used}}">
+    <div class="card bokbulbok-card bokbulbok-used-{{bokbulbok.used}}" id="bokbulbok-card-{{bokbulbok.id}}">
       <div class="card-content">
         <p>{{bokbulbok.id}}: {{bokbulbok.description}}</p>
         <p>Used? {{bokbulbok.used}}</p>
       </div>
       <div class="card-tabs">
         <ul class="tabs tabs-fixed-width">
-          <li class="tab"><a id="update-bokbulbok-{{bokbulbok.id}}">Update</a></li>
-          <li class="tab"><a id="delete-bokbulbok-{{bokbulbok.id}}">Delete</a></li>
+          <li class="tab update-bokbulbok"><a id="update-bokbulbok-{{bokbulbok.id}}">Update</a></li>
+          <li class="tab delete-bokbulbok"><a id="delete-bokbulbok-{{bokbulbok.id}}">Delete</a></li>
         </ul>
       </div>
     </div>

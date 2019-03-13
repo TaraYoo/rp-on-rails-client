@@ -51,7 +51,6 @@ const addHandlers = () => {
   $('.nav-wrapper').on('click', '#get-bokbulboks-button', onGetBokbulboks)
   $('.nav-wrapper').on('click', '#add-bokbulbok-button', onAddBokbulbokPressed)
   $('.authorized-form').on('submit', '#create-bokbulbok-form', onAddBokbulbok)
-  $('.location-cards').on('click', '#get-bokbulbok', getRandomBokbulbok)
   $('.authorized-form').on('click', '.cancel-btn', cancelForms)
 }
 

@@ -49,15 +49,6 @@ const onDeleteLocation = event => {
     .catch(ui.deleteLocationFailure)
 }
 
-const onUpdateLocationPressed = event => {
-  event.preventDefault()
-
-  const targeted = event.target.id
-  const targetNum = parseInt(targeted.split('-')[1])
-
-  ui.updateLocationPressed(targetNum)
-}
-
 const onUpdateLocation = event => {
   event.preventDefault()
 
@@ -85,8 +76,7 @@ const addHandlers = () => {
   $('.welcome-cards').on('click', '.get-details', onGetALocation)
   $('.welcome-cards').on('click', '.delete-location', onDeleteLocation)
   $('.welcome-cards').on('click', '#get-profile', getAllLocations)
-  $('.location-cards').on('click', '.update-btn', onUpdateLocationPressed)
-  $('.location-cards').on('submit', '.update-location-form', onUpdateLocation)
+  $('.welcome-cards').on('submit', '.update-location-form', onUpdateLocation)
 }
 
 module.exports = {

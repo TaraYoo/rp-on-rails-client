@@ -1,7 +1,6 @@
 const commonUi = require('../common-ui.js')
 const api = require('./api.js')
 const store = require('../store.js')
-const updateLocationFormTemplate = require('../templates/update-location-form.handlebars')
 const singleLocationTemplate = require('../templates/single-location.handlebars')
 const addLocationTemplate = require('../templates/add-location-form.handlebars')
 
@@ -59,35 +58,21 @@ const deleteLocationSuccess = () => {
     .catch(commonUi.getLocationsFailure)
 }
 
-const updateLocationPressed = (targetNum) => {
-  // empty all dynamic content
-  commonUi.emptyDynamic()
-
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('.location-cards').hide()
-  $('#create-location-form').hide()
-  // show the update-location-form
-  const updateFormHtml = updateLocationFormTemplate({targetNum: targetNum})
-  $('.forms-to-show').append(updateFormHtml)
-  $('.forms-to-show').show()
-}
-
 const updateLocationSuccess = responseData => {
   // empty all dynamic content
   commonUi.emptyDynamic()
 
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
+  // create user message
+  $('.authorized-form').text('You successfully updated ' + responseData.location.name)
+
+  setTimeout(() => {
+    $('.authorized-form').empty()
+  }, 2000)
 
   // go back to initial profile page
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
     .catch(commonUi.getLocationsFailure)
-  $('.location-cards').show()
 }
 
 const addLocationFailure = () => {
@@ -161,7 +146,6 @@ module.exports = {
   addLocationFailure,
   deleteLocationSuccess,
   deleteLocationFailure,
-  updateLocationPressed,
   updateLocationSuccess,
   updateLocationFailure,
   gotALocationSuccess,

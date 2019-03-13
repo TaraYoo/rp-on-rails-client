@@ -67,7 +67,7 @@ const addHandlers = () => {
   $('.requested-form').on('submit', '#sign-in-form', onSignIn)
   $('#change-password-btn').on('click', changePasswordRequested)
   $('#change-password-form').on('submit', onChangePassword)
-  $('#sign-out-button').on('click', onSignOut)
+  $('.nav-wrapper').on('click', '#sign-out-button', onSignOut)
 }
 
 module.exports = {

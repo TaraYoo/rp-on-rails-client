@@ -5,6 +5,7 @@ const store = require('../store.js')
 const signUpForm = require('../templates/sign-up-form.handlebars')
 const signInForm = require('../templates/sign-in-form.handlebars')
 const welcomeTemplate = require('../templates/welcome-page.handlebars')
+const authorizedOptions = require('../templates/post-sign-menu.handlebars')
 
 const signUpRequested = () => {
   commonUi.emptyDynamic()
@@ -43,12 +44,17 @@ const signInSuccess = responseData => {
   const locations = store.user.locations
   const bokbulboks = store.user.bokbulboks
 
-  // get the welcome template
+  // get the post sign in template
   const welcomeHtml = welcomeTemplate({name: name,
     locations: locations,
     bokbulboks: bokbulboks})
 
+  const authorizedOptionHtml = authorizedOptions()
+
   $('.welcome-cards').append(welcomeHtml)
+  $('.hide-on-med-and-down').append(authorizedOptionHtml)
+  $('#nav-mobile').append(authorizedOptionHtml)
+
   // (4) [{…}, {…}, {…}, {…}]
   // 0: {id: 4, description: "a snowfall", created_at: "2019-03-12T22:42:41.977Z", updated_at: "2019-03-12T22:42:41.977Z", used: false, …}
   // 1: {id: 5, description: "book of many things", created_at: "2019-03-12T22:42:53.828Z", updated_at: "2019-03-12T22:42:53.828Z", used: false, …}
@@ -60,14 +66,13 @@ const signInSuccess = responseData => {
 
 const signOutSuccess = () => {
   commonUi.emptyDynamic()
-  // hide unrelated content
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
-  $('.location-cards').hide()
-  $('.after-sign-in-options').hide()
-  // generate user message
-  // show user feedback
-  $('.landing-forms').show()
+  // empty non-landing contents
+  $('.hide-on-med-and-down').empty()
+  $('#nav-mobile').empty()
+  $('.welcome-cards').empty()
+
+  // go back to landing page
+  $('.landing').show()
   // delete user info in store
   store.user = null
 }

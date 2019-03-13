@@ -46,18 +46,17 @@ const deleteLocationSuccess = () => {
   // empty all dynamic content
   commonUi.emptyDynamic()
 
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
-
   // create user message
-  $('.location-alerts').text('You successfully deleted location')
+  $('.authorized-form').text('You successfully deleted a location')
+
+  setTimeout(() => {
+    $('.authorized-form').empty()
+  }, 2000)
+
   // go back to initial profile page
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
     .catch(commonUi.getLocationsFailure)
-  $('.location-cards').show()
 }
 
 const updateLocationPressed = (targetNum) => {

@@ -1,19 +1,19 @@
 
 <div class="row">
   <div class="col s12 m6" id="only-location-{{location.id}}">
-    <p>{{location.id}}: {{location.name}}</p>
+    <h4>{{location.id}}: {{location.name}}</h4>
+    <h5>Plot</h5>
     <p>{{location.plot}}</p>
+    <h5>Outcomes</h5>
     <p>{{location.outcome}}</p>
-    <p>Players visited: {{location.visited}}</p>
-    <p>Current player location: {{location.has_players}}</p>
-    <button class="btn red darken-4 delete-btn" id="delete-{{location.id}}">Delete Location</button>
-    <button class="btn" id="get-profile">Go back to locations list</button>
-    <button class="btn" id="get-bokbulbok">Generate a risk or reward</button>
+    <h5>Player interaction</h5>
+    <p>Have players visited? {{location.visited}}</p>
+    <p>Are players here? {{location.has_players}}</p>
   </div>
 
   <div class="col s12 m6">
     <form class="col s12 container update-location-form" id="update-location-form-{{location.id}}">
-      <p>Update {{location.name}}</p>
+      <h4>Update {{location.name}}</h4>
       <p class="update-location-alert"></p>
       <div class="row">
         <div class="input-field col s12">
@@ -37,4 +37,16 @@
         <i class="material-icons right">send</i></button>
     </form>
   </div>
+</div>
+
+<div class="row">
+  <ul>
+    <li><a id="delete-{{location.id}}" class="delete-location">Delete Location</a></li>
+  </ul>
+  <ul>
+    <li><a id="get-profile">Go back to locations list</a></li>
+  </ul>
+  <ul>
+    <li><a id="get-bokbulbok">Generate a risk or reward</a></li>
+  </ul>
 </div>

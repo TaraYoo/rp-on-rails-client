@@ -34,21 +34,10 @@ const signUpSuccess = () => {
 
 const signInSuccess = responseData => {
   commonUi.emptyDynamic()
-  // get locations data
-
-  // hide unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
-
-  // show after-auth page
-  $('.location-cards').show()
-  $('.after-sign-in-options').show()
+  // hide landing content
+  $('.landing').hide()
   // store user data
   store.user = responseData.user
-  locationApi.getLocations(responseData)
-    .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.getLocationsFailure)
   console.log(store.user)
 }
 

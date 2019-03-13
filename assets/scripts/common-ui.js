@@ -1,6 +1,7 @@
 'use strict'
 
-const locationCardsTemplate = require('./templates/location-cards.handlebars')
+const welcomeCardsTemplate = require('./templates/welcome-page.handlebars')
+const store = require('./store.js')
 
 const emptyDynamic = () => {
   $('form').trigger('reset')
@@ -11,9 +12,11 @@ const emptyDynamic = () => {
 }
 
 const getLocationsSuccess = responseData => {
-  const locationCardsHtml = locationCardsTemplate({ locations: responseData.locations })
-  $('.location-cards').empty()
-  $('.location-cards').append(locationCardsHtml)
+  const locationCardsHtml = welcomeCardsTemplate({ locations: responseData.locations })
+  $('.welcome-cards').empty()
+  $('.welcome-cards').append(locationCardsHtml)
+  // update store.user.locations per each pull
+  store.user.locations = responseData
 }
 
 const getLocationsFailure = () => {

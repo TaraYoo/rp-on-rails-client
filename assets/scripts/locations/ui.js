@@ -30,19 +30,21 @@ const updateLocationPressed = (targetNum) => {
   $('.forms-to-show').show()
 }
 
-const addLocationSuccess = () => {
+const addLocationSuccess = responseData => {
   // empty all dynamic content
   commonUi.emptyDynamic()
 
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
-  // go back to initial profile page
+  // Show post-sign-in menus
+  $('.authorized-form').text('You added ' + responseData.location.name)
+
+  setTimeout(() => {
+    $('.authorized-form').empty()
+  }, 2000)
+
+  // make a second api request and store to user
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
     .catch(commonUi.getLocationsFailure)
-  $('.location-cards').show()
 }
 
 const gotALocationSuccess = responseData => {

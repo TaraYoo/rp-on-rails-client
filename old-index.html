@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>RP on Rails</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="blue darken-4">
+        <div class="nav-wrapper container">
+          <a class="brand-logo left">RP on Rails</a>
+          <ul class="after-sign-in-options right">
+            <li><a id="change-password-btn">change password</a></li>
+            <li><a id="sign-out-button">sign out</a></li>
+            <li><a id="add-location-button">add location</a></li>
+            <li><a id="get-bokbulboks-button">See risks and rewards</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main>
+        <div class="landing-forms container">
+          <p class="landing-alerts"></p>
+          <form class="col s12" id="sign-up-form">
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="credentials[email]" type="email" id="sign-up-email" class="validate">
+                <label for="sign-up-email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="password" id="sign-up-password" class="validate" name="credentials[password]">
+                <label for="sign-up-password">Pasword</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="password" id="password-confirmation" class="validate" name="credentials[password_confirmation]">
+                <label for="password-confirmation">Password Confirmation</label>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action" id="sign-up-button">Sign Up
+              <i class="material-icons right">send</i></button>
+          </form>
+          <br>
+          <form class="col s12" id="sign-in-form">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="email" id="sign-in-email" class="validate" name="credentials[email]">
+                <label for="sign-in-email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="password" id="sign-in-password" class="validate" name="credentials[password]">
+                <label for="sign-in-password">Pasword</label>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Sign In
+            <i class="material-icons right">send</i></button>
+          </form>
+          <br>
+        </div>
+        <div class="forms-to-show container">
+
+        </div>
+        <form class="col s12 container" id="change-password-form">
+          <p class="user-alert"></p>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" id="old-password" class="validate" name="passwords[old]">
+              <label for="old-password">Old Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" id="new-pasword" class="validate" name="passwords[new]">
+              <label for="new-pasword">New Password</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i></button>
+          </form>
+          <br>
+          <form class="col s12 container" id="create-location-form">
+            <p class="create-location-alert"></p>
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" id="name" class="validate" name="location[name]">
+                <label for="name">Location Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" id="plot" class="validate" name="location[plot]">
+                <label for="plot">Location Plot</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" id="outcome" class="validate" name="location[outcome]">
+                <label for="outcome">Location Outcome</label>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i></button>
+            </form>
+        <div class="container">
+          <div class="row location-cards">
+            <p class="location-alerts"></p>
+
+          </div>
+          <div class="row bokbulbok-cards">
+            <p class="bokbulbok-alerts"></p>
+          </div>
+        </div>
+      </main>
+    </body>
+</html>

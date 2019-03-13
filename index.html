@@ -1,122 +1,100 @@
 <!DOCTYPE html>
-<html>
-    <head>
-      <title>RP on Rails</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+  <title>RP on Rails</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <nav class="blue darken-4">
-        <div class="nav-wrapper container">
-          <a class="brand-logo left">RP on Rails</a>
-          <ul class="after-sign-in-options right">
-            <li><a id="change-password-btn">change password</a></li>
-            <li><a id="sign-out-button">sign out</a></li>
-            <li><a id="add-location-button">add location</a></li>
-          </ul>
-        </div>
-      </nav>
-      <main>
-        <div class="landing-forms container">
-          <p class="landing-alerts"></p>
-          <form class="col s12" id="sign-up-form">
-            <div class="row">
-              <div class="input-field col s12">
-                <input name="credentials[email]" type="email" id="sign-up-email" class="validate">
-                <label for="sign-up-email">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="password" id="sign-up-password" class="validate" name="credentials[password]">
-                <label for="sign-up-password">Pasword</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="password" id="password-confirmation" class="validate" name="credentials[password_confirmation]">
-                <label for="password-confirmation">Password Confirmation</label>
-              </div>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action" id="sign-up-button">Sign Up
-              <i class="material-icons right">send</i></button>
-          </form>
-          <br>
-          <form class="col s12" id="sign-in-form">
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="email" id="sign-in-email" class="validate" name="credentials[email]">
-                <label for="sign-in-email">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="password" id="sign-in-password" class="validate" name="credentials[password]">
-                <label for="sign-in-password">Pasword</label>
-              </div>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Sign In
-            <i class="material-icons right">send</i></button>
-          </form>
-          <br>
-        </div>
-        <div class="forms-to-show container">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
+  <nav class="grey darken-4" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">RP on Rails</a>
+      <!-- Move this to handlebar after log-in -->
+      <!-- <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
 
-        </div>
-        <form class="col s12 container" id="change-password-form">
-          <p class="user-alert"></p>
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="password" id="old-password" class="validate" name="passwords[old]">
-              <label for="old-password">Old Password</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="password" id="new-pasword" class="validate" name="passwords[new]">
-              <label for="new-pasword">New Password</label>
-            </div>
-          </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i></button>
-          </form>
-          <br>
-          <form class="col s12 container" id="create-location-form">
-            <p class="create-location-alert"></p>
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="text" id="name" class="validate" name="location[name]">
-                <label for="name">Location Name</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="text" id="plot" class="validate" name="location[plot]">
-                <label for="plot">Location Plot</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="text" id="outcome" class="validate" name="location[outcome]">
-                <label for="outcome">Location Outcome</label>
-              </div>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i class="material-icons right">send</i></button>
-            </form>
-        <div class="container">
-          <div class="row location-cards">
-            <p class="location-alerts"></p>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+    </div>
+  </nav>
 
+  <div class="section no-pad-bot landing" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center  grey-text">Track Your Campaign</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A campaign trackers for lazy GMs who have trouble keeping up with all their locations and plots</h5>
+      </div>
+      <div class="row center">
+        <a id="request-sign-in-btn" class="btn-large waves-effect waves-light grey darken-4">Sign In</a>
+        <a id="request-sign-up-btn" class="btn-large waves-effect waves-light grey darken-4">Sign Up</a>
+      </div>
+      <br>
+      <div class="requested-form">
+        <!-- this is a placeholder for handlebar -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container landing">
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">map</i></h2>
+            <h5 class="center">List out your locations</h5>
+            <p class="light">Create, edit, delete, and track your campaign locations in card format. Additionally, you can pull a random risk or reward to serve as a quick encounter while you think of other plots when your players when they decide to travel elsewhere</p>
           </div>
         </div>
-      </main>
-    </body>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Involve your players</h5>
+
+            <p class="light">Ask your players to come up with rewards, such as an overpowered item, or a diplomatic triumph. Make them give you a proportionate risk, such as a lich queen or betrayals. Add them to a black box to draw from at random (or fudge the draws, it's up to you).</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">school</i></h2>
+            <h5 class="center">Designed for lazy GMs</h5>
+
+            <p class="light">The app is designed for GMs who want to have minimal plot points per location, while involving players in building the game. Please see Zee Bashew's D&D How I DM video for full deatils..</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer grey darken-4">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by Tara Yoo with Materialize, Javascript, and RP on Rails
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
 </html>

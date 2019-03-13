@@ -3,17 +3,16 @@ const api = require('./api.js')
 const store = require('../store.js')
 const updateLocationFormTemplate = require('../templates/update-location-form.handlebars')
 const singleLocationTemplate = require('../templates/single-location.handlebars')
+const addLocationTemplate = require('../templates/add-location-form.handlebars')
 
 const addLocationPressed = () => {
   // empty all dynamic content
   commonUi.emptyDynamic()
 
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('.location-cards').hide()
-  // show the sign-up-form
-  $('#create-location-form').show()
+  // show the add-location-form
+  const addLocationHtml = addLocationTemplate()
+  $('.authorized-form').empty()
+  $('.authorized-form').append(addLocationHtml)
 }
 
 const updateLocationPressed = (targetNum) => {

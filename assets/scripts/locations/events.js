@@ -1,5 +1,4 @@
 const api = require('./api.js')
-const locationApi = require('../locations/api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store.js')
@@ -35,7 +34,7 @@ const onGetALocation = event => {
 const getAllLocations = event => {
   event.preventDefault()
 
-  locationApi.getLocations(store)
+  api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
     .catch(commonUi.getLocationsFailure)
 }
@@ -82,7 +81,7 @@ const onUpdateLocation = event => {
 
 const addHandlers = () => {
   // $('body').on('click', tempTest)
-  $('#add-location-button').on('click', onAddLocationPressed)
+  $('.nav-wrapper').on('click', '#add-location-button', onAddLocationPressed)
   $('#create-location-form').on('submit', onAddLocation)
   $('.location-cards').on('click', '.get-details', onGetALocation)
   $('.location-cards').on('click', '.delete-btn', onDeleteLocation)

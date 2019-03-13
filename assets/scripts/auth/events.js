@@ -4,6 +4,11 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const api = require('./api.js')
 
+const onSignUpRequested = event => {
+  event.preventDefault()
+  ui.signUpRequested()
+}
+
 const onSignUp = event => {
   event.preventDefault()
 
@@ -51,10 +56,9 @@ const onSignOut = event => {
 }
 
 const addHandlers = () => {
-  // $('body').on('click', tempTest)
+  $('#request-sign-up-btn').on('click', onSignUpRequested)
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
-  // $('#sign-in-form').on('submit', onGetLocations)
   $('#change-password-btn').on('click', changePasswordRequested)
   $('#change-password-form').on('submit', onChangePassword)
   $('#sign-out-button').on('click', onSignOut)

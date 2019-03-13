@@ -3,6 +3,16 @@
 const commonUi = require('../common-ui.js')
 const store = require('../store.js')
 const locationApi = require('../locations/api.js')
+const signUpForm = require('../templates/sign-up-form.handlebars')
+
+const signUpRequested = () => {
+  commonUi.emptyDynamic()
+
+  const signUpFormHtml = signUpForm()
+
+  $('.requested-form').empty()
+  $('.requested-form').append(signUpFormHtml)
+}
 
 const signUpSuccess = () => {
   commonUi.emptyDynamic()
@@ -137,6 +147,7 @@ const signOutFailure = () => {
 }
 
 module.exports = {
+  signUpRequested,
   signUpSuccess,
   signUpFailure,
   signInSuccess,

@@ -93,16 +93,15 @@ const changePasswordSuccess = () => {
   // empty all dynamic content
   commonUi.emptyDynamic()
 
-  // hide all unrelated content
-  $('.location-cards').hide()
-  $('.landing-forms').hide()
-  $('#create-location-form').hide()
-
   // Show related user feedback
   $('.user-alert').show()
 
   // Show post-sign-in menus
-  $('.user-alert').text('You changed passwords!')
+  $('.authorized-form').text('You changed passwords!')
+
+  setTimeout(() => {
+    $('.authorized-form').empty()
+  }, 2000)
 }
 
 const signUpFailure = () => {

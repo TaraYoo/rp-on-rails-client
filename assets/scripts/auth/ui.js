@@ -33,6 +33,7 @@ const signInSuccess = responseData => {
   locationApi.getLocations(responseData)
     .then(commonUi.getLocationsSuccess)
     .catch(commonUi.getLocationsFailure)
+  console.log(store.user)
 }
 
 const signOutSuccess = () => {

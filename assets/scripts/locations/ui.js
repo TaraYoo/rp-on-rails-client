@@ -56,7 +56,6 @@ const gotALocationSuccess = responseData => {
   $('.location-cards').hide()
   $('#create-location-form').hide()
   // show the single location
-  console.log(responseData)
   const singleLocationHtml = singleLocationTemplate({location: responseData.location})
   $('.location-cards').append(singleLocationHtml)
   $('.location-cards').show()
@@ -89,7 +88,6 @@ const updateLocationSuccess = responseData => {
   $('#change-password-form').hide()
   $('#create-location-form').hide()
 
-  console.log(responseData)
   // go back to initial profile page
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)

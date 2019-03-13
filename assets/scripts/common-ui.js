@@ -17,7 +17,6 @@ const getLocationsSuccess = responseData => {
 }
 
 const getLocationsFailure = () => {
-  console.log('failure')
 }
 
 module.exports = {

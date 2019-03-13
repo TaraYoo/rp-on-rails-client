@@ -8,8 +8,10 @@
 
 const authEvents = require('./auth/events.js')
 const locationEvents = require('./locations/events.js')
+const bokbulbokEvents = require('./bokbulboks/events.js')
 
 $(() => {
   authEvents.addHandlers()
   locationEvents.addHandlers()
+  bokbulbokEvents.addHandlers()
 })

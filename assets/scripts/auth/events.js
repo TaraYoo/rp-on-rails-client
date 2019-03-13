@@ -63,7 +63,7 @@ const onSignOut = event => {
 const addHandlers = () => {
   $('#request-sign-up-btn').on('click', onSignUpRequested)
   $('#request-sign-in-btn').on('click', onSignInRequested)
-  $('#sign-up-form').on('submit', onSignUp)
+  $('.requested-form').on('submit', '#sign-up-form', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-password-btn').on('click', changePasswordRequested)
   $('#change-password-form').on('submit', onChangePassword)

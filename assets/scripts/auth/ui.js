@@ -26,10 +26,6 @@ const signInRequested = () => {
 
 const signUpSuccess = () => {
   commonUi.emptyDynamic()
-  // hide unrelated content
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
-  $('.location-cards').hide()
   // generate user message
   $('.landing-alerts').text("You're signed up. Please sign in")
   // show user feedback

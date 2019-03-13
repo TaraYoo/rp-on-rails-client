@@ -9,6 +9,11 @@ const onSignUpRequested = event => {
   ui.signUpRequested()
 }
 
+const onSignInRequested = event => {
+  event.preventDefault()
+  ui.signInRequested()
+}
+
 const onSignUp = event => {
   event.preventDefault()
 
@@ -57,6 +62,7 @@ const onSignOut = event => {
 
 const addHandlers = () => {
   $('#request-sign-up-btn').on('click', onSignUpRequested)
+  $('#request-sign-in-btn').on('click', onSignInRequested)
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-password-btn').on('click', changePasswordRequested)

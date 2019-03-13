@@ -82,7 +82,7 @@ const onUpdateLocation = event => {
 const addHandlers = () => {
   $('.nav-wrapper').on('click', '#add-location-button', onAddLocationPressed)
   $('.authorized-form').on('submit', '#create-location-form', onAddLocation)
-  $('.location-cards').on('click', '.get-details', onGetALocation)
+  $('.welcome-cards').on('click', '.get-details', onGetALocation)
   $('.location-cards').on('click', '.delete-btn', onDeleteLocation)
   $('.location-cards').on('click', '#get-profile', getAllLocations)
   $('.location-cards').on('click', '.update-btn', onUpdateLocationPressed)

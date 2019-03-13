@@ -15,21 +15,6 @@ const addLocationPressed = () => {
   $('.authorized-form').append(addLocationHtml)
 }
 
-const updateLocationPressed = (targetNum) => {
-  // empty all dynamic content
-  commonUi.emptyDynamic()
-
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('.location-cards').hide()
-  $('#create-location-form').hide()
-  // show the update-location-form
-  const updateFormHtml = updateLocationFormTemplate({targetNum: targetNum})
-  $('.forms-to-show').append(updateFormHtml)
-  $('.forms-to-show').show()
-}
-
 const addLocationSuccess = responseData => {
   // empty all dynamic content
   commonUi.emptyDynamic()
@@ -51,15 +36,10 @@ const gotALocationSuccess = responseData => {
   // empty all dynamic content
   commonUi.emptyDynamic()
 
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('.location-cards').hide()
-  $('#create-location-form').hide()
   // show the single location
   const singleLocationHtml = singleLocationTemplate({location: responseData.location})
-  $('.location-cards').append(singleLocationHtml)
-  $('.location-cards').show()
+  $('.welcome-cards').empty()
+  $('.welcome-cards').append(singleLocationHtml)
 }
 
 const deleteLocationSuccess = () => {
@@ -78,6 +58,21 @@ const deleteLocationSuccess = () => {
     .then(commonUi.getLocationsSuccess)
     .catch(commonUi.getLocationsFailure)
   $('.location-cards').show()
+}
+
+const updateLocationPressed = (targetNum) => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
+  // hide all unrelated content
+  $('.landing-forms').hide()
+  $('#change-password-form').hide()
+  $('.location-cards').hide()
+  $('#create-location-form').hide()
+  // show the update-location-form
+  const updateFormHtml = updateLocationFormTemplate({targetNum: targetNum})
+  $('.forms-to-show').append(updateFormHtml)
+  $('.forms-to-show').show()
 }
 
 const updateLocationSuccess = responseData => {

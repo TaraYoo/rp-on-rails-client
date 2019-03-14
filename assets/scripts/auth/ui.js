@@ -54,13 +54,6 @@ const signInSuccess = responseData => {
 
   $('.welcome-cards').append(welcomeHtml)
   $('.sidenav').append(authorizedOptionHtml)
-  // (4) [{…}, {…}, {…}, {…}]
-  // 0: {id: 4, description: "a snowfall", created_at: "2019-03-12T22:42:41.977Z", updated_at: "2019-03-12T22:42:41.977Z", used: false, …}
-  // 1: {id: 5, description: "book of many things", created_at: "2019-03-12T22:42:53.828Z", updated_at: "2019-03-12T22:42:53.828Z", used: false, …}
-  // 2: {id: 6, description: "fluffy bunny", created_at: "2019-03-12T22:43:04.173Z", updated_at: "2019-03-12T22:43:04.173Z", used: false, …}
-  // 3: {id: 7, description: "demon king", created_at: "2019-03-12T22:43:13.984Z", updated_at: "2019-03-12T22:43:13.984Z", used: false, …}
-  // length: 4
-  // __proto__: Array(0)
 }
 
 const signOutSuccess = () => {
@@ -99,15 +92,10 @@ const changePasswordSuccess = () => {
   }, 2000)
 }
 
-const signUpFailure = () => {
+const signUpFailure = responseData => {
   commonUi.emptyDynamic()
-  // hide unrelated content
-  $('.after-sign-in-forms').hide()
-  $('.location-cards').hide()
-  // generate user message
-  $('.landing-alerts').text('There was a sign-up error. Please try again')
-  // show user feedback
-  $('.landing-alerst').show()
+
+  console.log(responseData.state())
 }
 
 const signInFailure = () => {

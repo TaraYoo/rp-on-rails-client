@@ -7,7 +7,13 @@ const signUp = formData => {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
-    data: formData
+    data: formData,
+    error: responseData => {
+      const response = responseData.responseJSON
+      const header = Object.keys(response)[0]
+      const details = response[`${Object.keys(response)[0]}`][0]
+      return (header + ' ' + details)
+    }
   })
 }
 

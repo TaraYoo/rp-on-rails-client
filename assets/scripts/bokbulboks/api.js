@@ -32,8 +32,19 @@ const getABokbulBok = id => {
   })
 }
 
+const deleteBokbulbok = id => {
+  return $.ajax({
+    url: config.apiUrl + '/bokbulboks/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getBokbulboks,
   getABokbulBok,
-  addBokbulbok
+  addBokbulbok,
+  deleteBokbulbok
 }

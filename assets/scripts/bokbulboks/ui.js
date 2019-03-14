@@ -37,8 +37,25 @@ const addBokbulbokSuccess = responseData => {
   }, 2000)
 
   // make a second api request and store to user
-  api.getBokbulboks(store)
+  api.getBokbulboks()
     .then(commonUi.storeBokbulboks)
+    .catch(commonUi.getLocationsFailure)
+}
+
+const deleteBokbulbokSuccess = () => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
+  // create user message
+  $('.authorized-form').text('You successfully deleted a location')
+
+  setTimeout(() => {
+    $('.authorized-form').empty()
+  }, 2000)
+
+  // store new bokbulboks locally
+  api.getBokbulboks()
+    .then(commonUi.getBokbulboksSuccess)
     .catch(commonUi.getLocationsFailure)
 }
 
@@ -46,5 +63,6 @@ module.exports = {
   getBokbulboksFailure,
   getRandomBokbulbokSuccess,
   addBokbulbokPressed,
-  addBokbulbokSuccess
+  addBokbulbokSuccess,
+  deleteBokbulbokSuccess
 }

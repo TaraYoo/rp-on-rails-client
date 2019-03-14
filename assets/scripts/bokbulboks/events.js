@@ -41,6 +41,15 @@ const getRandomBokbulbok = event => {
     .catch(ui.getBokbulboksFailure)
 }
 
+const onDeleteBokbulbok = event => {
+  event.preventDefault()
+
+  const targetId = event.target.id.split('-')[2]
+  api.deleteBokbulbok(targetId)
+    .then(ui.deleteBokbulbokSuccess)
+    .catch(ui.getLocationsFailure)
+}
+
 const cancelForms = event => {
   event.preventDefault()
 
@@ -52,6 +61,7 @@ const addHandlers = () => {
   $('.sidenav').on('click', '#add-bokbulbok-button', onAddBokbulbokPressed)
   $('.authorized-form').on('submit', '#create-bokbulbok-form', onAddBokbulbok)
   $('.authorized-form').on('click', '.cancel-btn', cancelForms)
+  $('.welcome-cards').on('click', '.delete-bokbulbok', onDeleteBokbulbok)
 }
 
 module.exports = {

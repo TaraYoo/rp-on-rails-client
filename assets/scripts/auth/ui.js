@@ -53,8 +53,7 @@ const signInSuccess = responseData => {
   const authorizedOptionHtml = authorizedOptions()
 
   $('.welcome-cards').append(welcomeHtml)
-  $('.hide-on-med-and-down').append(authorizedOptionHtml)
-  $('#nav-mobile').append(authorizedOptionHtml)
+  $('.sidenav').append(authorizedOptionHtml)
   // (4) [{…}, {…}, {…}, {…}]
   // 0: {id: 4, description: "a snowfall", created_at: "2019-03-12T22:42:41.977Z", updated_at: "2019-03-12T22:42:41.977Z", used: false, …}
   // 1: {id: 5, description: "book of many things", created_at: "2019-03-12T22:42:53.828Z", updated_at: "2019-03-12T22:42:53.828Z", used: false, …}

@@ -71,7 +71,8 @@ const onUpdateLocation = event => {
 }
 
 const addHandlers = () => {
-  $('.nav-wrapper').on('click', '#add-location-button', onAddLocationPressed)
+  $('.sidenav').on('click', '#add-location-button', onAddLocationPressed)
+  $('.sidenav').on('click', '#get-locations-button', getAllLocations)
   $('.authorized-form').on('submit', '#create-location-form', onAddLocation)
   $('.welcome-cards').on('click', '.get-details', onGetALocation)
   $('.welcome-cards').on('click', '.delete-location', onDeleteLocation)

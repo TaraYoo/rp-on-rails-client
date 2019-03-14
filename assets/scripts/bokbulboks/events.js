@@ -34,7 +34,7 @@ const onAddBokbulbok = event => {
 const getRandomBokbulbok = event => {
   event.preventDefault()
   const availableIds = []
-  store.bokbulboks.forEach(object => availableIds.push(object.id))
+  store.user.bokbulboks.forEach(object => availableIds.push(object.id))
   const targetId = availableIds[Math.floor(Math.random() * availableIds.length)]
   api.getABokbulBok(targetId)
     .then(ui.getRandomBokbulbokSuccess)
@@ -62,6 +62,7 @@ const addHandlers = () => {
   $('.authorized-form').on('submit', '#create-bokbulbok-form', onAddBokbulbok)
   $('.authorized-form').on('click', '.cancel-btn', cancelForms)
   $('.welcome-cards').on('click', '.delete-bokbulbok', onDeleteBokbulbok)
+  $('.welcome-cards').on('click', '#get-bokbulbok', getRandomBokbulbok)
 }
 
 module.exports = {

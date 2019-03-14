@@ -6,10 +6,8 @@ const bokbulbokCardsTemplate = require('./templates/bokbulbok-cards.handlebars')
 
 const emptyDynamic = () => {
   $('form').trigger('reset')
-  $('.landing-alerts').text('')
-  $('.location-alerts').text('')
+  $('.bokbulbok').text('')
   $('.forms-to-show').empty()
-  $('.location-cards').empty()
 }
 
 const storeBokbulboks = responseData => {
@@ -37,9 +35,6 @@ const getBokbulboksSuccess = responseData => {
   const bokbulbokCardsHtml = bokbulbokCardsTemplate({
     bokbulboks: store.user.bokbulboks
   })
-
-  console.log(store.user.bokbulboks)
-  console.log(responseData.bokbulboks)
 
   $('.welcome-cards').empty()
   $('.welcome-cards').append(bokbulbokCardsHtml)

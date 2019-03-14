@@ -2,13 +2,18 @@
 
 const commonUi = require('../common-ui.js')
 const addBokbulbokTemplate = require('../templates/add-bokbulbok-form.handlebars')
+const randomBokbulbokTemplate = require('../templates/random-bokbulbok.handlebars')
 const api = require('./api.js')
-const store = require('../store.js')
 
 const getRandomBokbulbokSuccess = responseData => {
-  $('.location-alerts').text(responseData.bokbulbok.description)
-  $('.bokbulbok-cards').empty()
-  $('.bokbulbok-cards').append(responseData.bokbulbok.description)
+  const randomBokbulbokHtml = randomBokbulbokTemplate({ bokbulbok: responseData.bokbulbok })
+
+  $('.bokbulbok').empty()
+  $('.bokbulbok').append(randomBokbulbokHtml)
+
+  const bokbulbokId = responseData.bokbulbok.id
+  api.updateBokbulbok(bokbulbokId)
+    .then(commonUi.storeBokbulboks)
 }
 
 const getBokbulboksFailure = responseData => {

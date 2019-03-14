@@ -42,9 +42,25 @@ const deleteBokbulbok = id => {
   })
 }
 
+const updateBokbulbok = id => {
+  return $.ajax({
+    url: config.apiUrl + '/bokbulboks/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      bokbulbok: {
+        used: true
+      }
+    }
+  })
+}
+
 module.exports = {
   getBokbulboks,
   getABokbulBok,
   addBokbulbok,
-  deleteBokbulbok
+  deleteBokbulbok,
+  updateBokbulbok
 }

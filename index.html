@@ -13,38 +13,36 @@
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 <body>
-  <nav class="grey darken-4" role="navigation">
-    <ul id="slide-out" class="sidenav">
-    </ul>
-
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">RP on Rails</a>
-    </div>
-  </nav>
-
-
-  <div class="section no-pad-bot landing" id="index-banner">
+  <header>
     <div class="container">
-      <br><br>
-      <h1 class="header center grey-text">Track Your Campaign</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">A campaign trackers for lazy GMs who have trouble keeping up with all their locations and plots</h5>
-      </div>
-      <div class="row center">
-        <a id="request-sign-in-btn" class="btn-large waves-effect waves-light grey darken-4">Sign In</a>
-        <a id="request-sign-up-btn" class="btn-large waves-effect waves-light grey darken-4">Sign Up</a>
-      </div>
-      <br>
-      <div class="failure-message">
-        <!-- placeholder for error messages. These should all clear after 3 sec -->
-      </div>
-      <div class="requested-form container">
-        <!-- this is a placeholder for handlebar -->
-      </div>
+      <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a>
     </div>
-  </div>
+    <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform: translateX(-105%);">
+    </ul>
+  </header>
 
   <main class="container">
+    <div class="section no-pad-bot landing" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center grey-text">RP on Rails</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">A campaign trackers for lazy GMs who have trouble keeping up with all their locations and plots</h5>
+        </div>
+        <div class="row center">
+          <a id="request-sign-in-btn" class="btn-large waves-effect waves-light grey darken-4">Sign In</a>
+          <a id="request-sign-up-btn" class="btn-large waves-effect waves-light grey darken-4">Sign Up</a>
+        </div>
+        <br>
+        <div class="failure-message">
+          <!-- placeholder for error messages. These should all clear after 3 sec -->
+        </div>
+        <div class="requested-form container">
+          <!-- this is a placeholder for handlebar -->
+        </div>
+      </div>
+    </div>
+
     <div class="failure-message">
       <!-- placeholder for error messages. These should all clear after 3 sec -->
     </div>
@@ -57,44 +55,43 @@
     <div class="row bokbulbok">
       <!-- this is a placeholder for random rewards or risks -->
     </div>
-  </main>
 
+    <div class="container landing">
+      <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12 m4">
 
-  <div class="container landing">
-    <div class="section">
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">map</i></h2>
+              <h5 class="center">List out your locations</h5>
+              <p class="light">Create, edit, delete, and track your campaign locations in card format. Additionally, you can pull a random risk or reward to serve as a quick encounter while you think of other plots when your players when they decide to travel elsewhere</p>
+            </div>
+          </div>
 
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">map</i></h2>
-            <h5 class="center">List out your locations</h5>
-            <p class="light">Create, edit, delete, and track your campaign locations in card format. Additionally, you can pull a random risk or reward to serve as a quick encounter while you think of other plots when your players when they decide to travel elsewhere</p>
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+              <h5 class="center">Involve your players</h5>
+
+              <p class="light">Ask your players to come up with rewards, such as an overpowered item, or a diplomatic triumph. Make them give you a proportionate risk, such as a lich queen or betrayals. Add them to a black box to draw from at random.</p>
+            </div>
+          </div>
+
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">school</i></h2>
+              <h5 class="center">Designed for lazy GMs</h5>
+
+              <p class="light">The app is designed for GMs who want to have minimal plot points per location, while involving players in building the game. Please see Zee Bashew's <a href="https://www.youtube.com/watch?v=vKQv4GC0N9Q">How I DM video</a> for full details</p>
+            </div>
           </div>
         </div>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Involve your players</h5>
-
-            <p class="light">Ask your players to come up with rewards, such as an overpowered item, or a diplomatic triumph. Make them give you a proportionate risk, such as a lich queen or betrayals. Add them to a black box to draw from at random.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">school</i></h2>
-            <h5 class="center">Designed for lazy GMs</h5>
-
-            <p class="light">The app is designed for GMs who want to have minimal plot points per location, while involving players in building the game. Please see Zee Bashew's <a href="https://www.youtube.com/watch?v=vKQv4GC0N9Q">How I DM video</a> for full details</p>
-          </div>
-        </div>
       </div>
-
+      <br><br>
     </div>
-    <br><br>
-  </div>
+  </main>
 
   <footer class="page-footer grey darken-4">
     <div class="footer-copyright">

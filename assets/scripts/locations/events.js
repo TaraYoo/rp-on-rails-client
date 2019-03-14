@@ -17,7 +17,6 @@ const onAddLocation = event => {
 
   api.addLocation(formData)
     .then(ui.addLocationSuccess)
-    .catch(ui.addLocationFailure)
 }
 
 const onGetALocation = event => {
@@ -28,7 +27,6 @@ const onGetALocation = event => {
 
   api.getALocation(targetNum)
     .then(ui.gotALocationSuccess)
-    .catch(ui.gotALocationFailure)
 }
 
 const getAllLocations = event => {
@@ -36,7 +34,6 @@ const getAllLocations = event => {
 
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.failureMessage)
 }
 
 const onDeleteLocation = event => {
@@ -46,7 +43,6 @@ const onDeleteLocation = event => {
 
   api.deleteLocation(targetNum)
     .then(ui.deleteLocationSuccess)
-    .catch(ui.deleteLocationFailure)
 }
 
 const onUpdateLocation = event => {
@@ -67,7 +63,6 @@ const onUpdateLocation = event => {
 
   api.updateLocation(targetNum, apiData)
     .then(ui.updateLocationSuccess)
-    .catch(ui.updateLocationFailure)
 }
 
 const addHandlers = () => {

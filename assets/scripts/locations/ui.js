@@ -75,79 +75,10 @@ const updateLocationSuccess = responseData => {
     .catch(commonUi.failureMessage)
 }
 
-const addLocationFailure = () => {
-  // empty all dynamic content
-  commonUi.emptyDynamic()
-
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  // go back to initial sign in page
-  $('.create-location-alert').text('Your location wasn\'t added. Please try again')
-}
-
-const deleteLocationFailure = () => {
-  // empty all dynamic content
-  commonUi.emptyDynamic()
-
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
-
-  // create user message
-  $('.location-alerts').text('Something went wrong, and your location was not deleted. Please try again')
-  // go back to initial profile page
-  api.getLocations(store)
-    .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.failureMessage)
-  $('.location-cards').show()
-}
-
-const updateLocationFailure = () => {
-  // empty all dynamic content
-  commonUi.emptyDynamic()
-
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
-
-  // create user message
-  $('.update-location-alert').text('Something went wrong, and your location was not updated. Please try again')
-  // go back to initial profile page
-  api.getLocations(store)
-    .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.failureMessage)
-  $('.location-cards').show()
-}
-
-const gotALocationFailure = () => {
-  // empty all dynamic content
-  commonUi.emptyDynamic()
-
-  // hide all unrelated content
-  $('.landing-forms').hide()
-  $('#change-password-form').hide()
-  $('#create-location-form').hide()
-
-  // create user message
-  $('.location-alerts').text('Something went wrong. Please try again')
-  // go back to initial profile page
-  api.getLocations(store)
-    .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.failureMessage)
-  $('.location-cards').show()
-}
-
 module.exports = {
   addLocationPressed,
   addLocationSuccess,
-  addLocationFailure,
   deleteLocationSuccess,
-  deleteLocationFailure,
   updateLocationSuccess,
-  updateLocationFailure,
-  gotALocationSuccess,
-  gotALocationFailure
+  gotALocationSuccess
 }

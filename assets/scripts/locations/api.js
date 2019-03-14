@@ -1,5 +1,6 @@
 const config = require('../config.js')
 const store = require('../store.js')
+const failures = require('../failure-message.js')
 
 const addLocation = formData => {
   return $.ajax({
@@ -8,7 +9,8 @@ const addLocation = formData => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: formData
+    data: formData,
+    statusCode: failures.edgeStatuses
   })
 }
 
@@ -18,7 +20,8 @@ const getLocations = responseData => {
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + responseData.user.token
-    }
+    },
+    statusCode: failures.edgeStatuses
   })
 }
 
@@ -28,7 +31,8 @@ const getALocation = id => {
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    statusCode: failures.edgeStatuses
   })
 }
 
@@ -38,7 +42,8 @@ const deleteLocation = id => {
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    statusCode: failures.edgeStatuses
   })
 }
 
@@ -49,7 +54,8 @@ const updateLocation = (id, formData) => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: formData
+    data: formData,
+    statusCode: failures.edgeStatuses
   })
 }
 

@@ -7,10 +7,12 @@ const bokbulbokCardsTemplate = require('./templates/bokbulbok-cards.handlebars')
 const emptyDynamic = () => {
   $('form').trigger('reset')
   $('.forms-to-show').empty()
+  $('.bokbulbok').empty()
 }
 
 const getLocationsSuccess = responseData => {
   store.user.locations = responseData.locations
+  emptyDynamic()
 
   const name = store.user.email.split('@')[0]
   const locations = store.user.locations
@@ -26,6 +28,7 @@ const getLocationsSuccess = responseData => {
 
 const getBokbulboksSuccess = responseData => {
   store.user.bokbulboks = responseData.bokbulboks
+  emptyDynamic()
 
   const bokbulbokCardsHtml = bokbulbokCardsTemplate({
     bokbulboks: store.user.bokbulboks

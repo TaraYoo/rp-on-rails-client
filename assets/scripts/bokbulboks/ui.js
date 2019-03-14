@@ -7,6 +7,9 @@ const api = require('./api.js')
 const updateStores = require('../storages.js')
 
 const getRandomBokbulbokSuccess = responseData => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
   const randomBokbulbokHtml = randomBokbulbokTemplate({ bokbulbok: responseData.bokbulbok })
 
   $('.bokbulbok').empty()

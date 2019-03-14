@@ -17,6 +17,7 @@ const onAddLocation = event => {
 
   api.addLocation(formData)
     .then(ui.addLocationSuccess)
+    .catch(commonUi.emptyDynamic)
 }
 
 const onGetALocation = event => {

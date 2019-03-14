@@ -27,6 +27,7 @@ const onAddBokbulbok = event => {
 
   api.addBokbulbok(formData)
     .then(ui.addBokbulbokSuccess)
+    .catch(commonUi.emptyDynamic)
 }
 
 const getRandomBokbulbok = event => {

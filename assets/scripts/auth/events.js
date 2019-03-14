@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const api = require('./api.js')
+const commonUi = require('../common-ui.js')
 
 const onSignUpRequested = event => {
   event.preventDefault()
@@ -33,6 +34,7 @@ const onSignIn = event => {
 
   api.signIn(formData)
     .then(ui.signInSuccess)
+    .catch(commonUi.emptyDynamic)
 }
 
 const changePasswordRequested = event => {
@@ -48,6 +50,7 @@ const onChangePassword = event => {
 
   api.changePassword(formData)
     .then(ui.changePasswordSuccess)
+    .catch(commonUi.emptyDynamic)
 }
 
 const onSignOut = event => {
@@ -55,6 +58,7 @@ const onSignOut = event => {
 
   api.signOut()
     .then(ui.signOutSuccess)
+    .catch(commonUi.emptyDynamic)
 }
 
 const addHandlers = () => {

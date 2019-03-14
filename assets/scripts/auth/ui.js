@@ -93,6 +93,9 @@ const changePasswordSuccess = () => {
 }
 
 const signUpFailure = responseData => {
+  // empty all dynamic content
+  commonUi.emptyDynamic()
+
   const response = responseData.responseJSON
   const header = Object.keys(response)[0]
   const details = response[`${Object.keys(response)[0]}`][0]

@@ -1,5 +1,6 @@
 const config = require('../config.js')
 const store = require('../store.js')
+const failures = require('../failure-message.js')
 
 const getBokbulboks = () => {
   return $.ajax({
@@ -7,7 +8,8 @@ const getBokbulboks = () => {
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    statusCode: failures.edgeStatuses
   })
 }
 
@@ -18,7 +20,8 @@ const addBokbulbok = formData => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: formData
+    data: formData,
+    statusCode: failures.edgeStatuses
   })
 }
 
@@ -28,7 +31,8 @@ const getABokbulBok = id => {
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    statusCode: failures.edgeStatuses
   })
 }
 
@@ -38,7 +42,8 @@ const deleteBokbulbok = id => {
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    statusCode: failures.edgeStatuses
   })
 }
 
@@ -53,7 +58,10 @@ const updateBokbulbok = id => {
       bokbulbok: {
         used: true
       }
-    }
+    },
+    statusCode: Object.assign(failures.edgeStatuses, {
+      400: function () { failures.failureMessage('This risk or reward did not get logged as used. I\'m sorry about the inconvenience.') }
+    })
   })
 }
 

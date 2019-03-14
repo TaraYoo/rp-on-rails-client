@@ -11,7 +11,6 @@ const onGetBokbulboks = event => {
 
   api.getBokbulboks(store)
     .then(commonUi.getBokbulboksSuccess)
-    .catch(commonUi.failureMessage)
 }
 
 const onAddBokbulbokPressed = event => {
@@ -28,7 +27,6 @@ const onAddBokbulbok = event => {
 
   api.addBokbulbok(formData)
     .then(ui.addBokbulbokSuccess)
-    .catch(commonUi.failureMessage)
 }
 
 const getRandomBokbulbok = event => {
@@ -38,7 +36,6 @@ const getRandomBokbulbok = event => {
   const targetId = availableIds[Math.floor(Math.random() * availableIds.length)]
   api.getABokbulBok(targetId)
     .then(ui.getRandomBokbulbokSuccess)
-    .catch(ui.getBokbulboksFailure)
 }
 
 const onDeleteBokbulbok = event => {
@@ -47,7 +44,6 @@ const onDeleteBokbulbok = event => {
   const targetId = event.target.id.split('-')[2]
   api.deleteBokbulbok(targetId)
     .then(ui.deleteBokbulbokSuccess)
-    .catch(ui.failureMessage)
 }
 
 const cancelForms = event => {

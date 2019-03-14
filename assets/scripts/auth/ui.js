@@ -59,8 +59,7 @@ const signInSuccess = responseData => {
 const signOutSuccess = () => {
   commonUi.emptyDynamic()
   // empty non-landing contents
-  $('.hide-on-med-and-down').empty()
-  $('#nav-mobile').empty()
+  $('.sidenav').empty()
   $('.welcome-cards').empty()
 
   // go back to landing page

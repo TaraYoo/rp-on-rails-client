@@ -4,6 +4,7 @@ const commonUi = require('../common-ui.js')
 const addBokbulbokTemplate = require('../templates/add-bokbulbok-form.handlebars')
 const randomBokbulbokTemplate = require('../templates/random-bokbulbok.handlebars')
 const api = require('./api.js')
+const updateStores = require('../storages.js')
 
 const getRandomBokbulbokSuccess = responseData => {
   const randomBokbulbokHtml = randomBokbulbokTemplate({ bokbulbok: responseData.bokbulbok })
@@ -13,7 +14,7 @@ const getRandomBokbulbokSuccess = responseData => {
 
   const bokbulbokId = responseData.bokbulbok.id
   api.updateBokbulbok(bokbulbokId)
-    .then(commonUi.storeBokbulboks)
+    .then(updateStores.updateUserBokbulbok)
 }
 
 const getBokbulboksFailure = responseData => {

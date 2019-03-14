@@ -6,12 +6,7 @@ const bokbulbokCardsTemplate = require('./templates/bokbulbok-cards.handlebars')
 
 const emptyDynamic = () => {
   $('form').trigger('reset')
-  $('.bokbulbok').text('')
   $('.forms-to-show').empty()
-}
-
-const storeBokbulboks = responseData => {
-  store.user.bokbulboks = responseData.bokbulboks
 }
 
 const getLocationsSuccess = responseData => {
@@ -43,6 +38,5 @@ const getBokbulboksSuccess = responseData => {
 module.exports = {
   emptyDynamic,
   getLocationsSuccess,
-  getBokbulboksSuccess,
-  storeBokbulboks
+  getBokbulboksSuccess
 }

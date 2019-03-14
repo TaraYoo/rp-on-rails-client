@@ -2,18 +2,13 @@
 
 const config = require('../config.js')
 const store = require('../store.js')
+const failures = require('../failure-message.js')
 
 const signUp = formData => {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
-    data: formData,
-    error: responseData => {
-      const response = responseData.responseJSON
-      const header = Object.keys(response)[0]
-      const details = response[`${Object.keys(response)[0]}`][0]
-      return (header + ' ' + details)
-    }
+    data: formData
   })
 }
 
@@ -25,7 +20,10 @@ const signIn = formData => {
     success: data => {
       const userData = data
       return userData
-    }
+    },
+    statusCode: Object.assign(failures.edgeStatuses, {
+      401: function () { failures.failureMessage('Please check your email or password and try again.') }
+    })
   })
 }
 
@@ -36,7 +34,10 @@ const changePassword = formData => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: formData
+    data: formData,
+    statusCode: Object.assign(failures.edgeStatuses, {
+      400: function () { failures.failureMessage('Please check your password and try again.') }
+    })
   })
 }
 
@@ -46,7 +47,8 @@ const signOut = formData => {
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    statusCode: failures.edgeStatuses
   })
 }
 

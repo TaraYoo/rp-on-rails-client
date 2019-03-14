@@ -40,13 +40,9 @@ const getBokbulboksSuccess = responseData => {
   $('.welcome-cards').append(bokbulbokCardsHtml)
 }
 
-const failureMessage = () => {
-}
-
 module.exports = {
   emptyDynamic,
   getLocationsSuccess,
   getBokbulboksSuccess,
-  failureMessage,
   storeBokbulboks
 }

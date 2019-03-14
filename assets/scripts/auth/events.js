@@ -33,7 +33,6 @@ const onSignIn = event => {
 
   api.signIn(formData)
     .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
 }
 
 const changePasswordRequested = event => {
@@ -49,7 +48,6 @@ const onChangePassword = event => {
 
   api.changePassword(formData)
     .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
 }
 
 const onSignOut = event => {
@@ -57,7 +55,6 @@ const onSignOut = event => {
 
   api.signOut()
     .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
 }
 
 const addHandlers = () => {

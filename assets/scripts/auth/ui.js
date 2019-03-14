@@ -93,52 +93,24 @@ const changePasswordSuccess = () => {
 }
 
 const signUpFailure = responseData => {
-  commonUi.emptyDynamic()
+  const response = responseData.responseJSON
+  const header = Object.keys(response)[0]
+  const details = response[`${Object.keys(response)[0]}`][0]
+  const message = header + ' ' + details
+  let toAppend
 
-  console.log(responseData.state())
-}
+  if (message === ' ') {
+    toAppend = 'Something went wrong. Please try again'
+  } else {
+    toAppend = message
+  }
 
-const signInFailure = () => {
-  commonUi.emptyDynamic()
-  // hide unrelated content
-  $('.after-sign-in-forms').hide()
-  $('.location-cards').hide()
-  // generate user message
-  $('.landing-alerts').text('There was a sign-in error. Please try again')
-  // show user feedback
-  $('.landing-alerts').show()
-}
+  $('.failure-message').empty()
+  $('.failure-message').text(toAppend)
 
-const changePasswordFailure = () => {
-  // empty all dynamic content
-  commonUi.emptyDynamic()
-
-  // hide all unrelated content
-  $('.location-cards').hide()
-  $('.landing-forms').hide()
-  $('#create-location-form').hide()
-
-  // Show related user feedback
-  $('.user-alert').show()
-
-  // Show post-sign-in menus
-  $('.user-alert').text("Your password didn't change. Please try again")
-}
-
-const signOutFailure = () => {
-  // empty all dynamic content
-  commonUi.emptyDynamic()
-
-  // hide all unrelated content
-  $('.location-cards').hide()
-  $('.landing-forms').hide()
-  $('#create-location-form').hide()
-
-  // Show related user feedback
-  $('.user-alert').show()
-
-  // Show post-sign-in menus
-  $('.user-alert').text("Your password didn't change. Please try again")
+  setTimeout(() => {
+    $('.failure-message').empty()
+  }, 3000)
 }
 
 module.exports = {
@@ -147,10 +119,7 @@ module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure,
   changePasswordRequest,
   changePasswordSuccess,
-  changePasswordFailure,
-  signOutSuccess,
-  signOutFailure
+  signOutSuccess
 }

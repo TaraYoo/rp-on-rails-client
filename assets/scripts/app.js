@@ -11,6 +11,7 @@ const locationEvents = require('./locations/events.js')
 const bokbulbokEvents = require('./bokbulboks/events.js')
 
 $(() => {
+  $(`.sidenav`).sidenav() // material.css init
   authEvents.addHandlers()
   locationEvents.addHandlers()
   bokbulbokEvents.addHandlers()

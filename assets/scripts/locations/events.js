@@ -36,7 +36,7 @@ const getAllLocations = event => {
 
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
 }
 
 const onDeleteLocation = event => {

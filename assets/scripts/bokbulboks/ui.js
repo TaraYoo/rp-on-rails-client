@@ -44,7 +44,7 @@ const addBokbulbokSuccess = responseData => {
   // make a second api request and store to user
   api.getBokbulboks()
     .then(commonUi.storeBokbulboks)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
 }
 
 const deleteBokbulbokSuccess = () => {
@@ -61,7 +61,7 @@ const deleteBokbulbokSuccess = () => {
   // store new bokbulboks locally
   api.getBokbulboks()
     .then(commonUi.getBokbulboksSuccess)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
 }
 
 module.exports = {

@@ -28,7 +28,7 @@ const addLocationSuccess = responseData => {
   // make a second api request and store to user
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
 }
 
 const gotALocationSuccess = responseData => {
@@ -55,7 +55,7 @@ const deleteLocationSuccess = () => {
   // go back to initial profile page
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
 }
 
 const updateLocationSuccess = responseData => {
@@ -72,7 +72,7 @@ const updateLocationSuccess = responseData => {
   // go back to initial profile page
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
 }
 
 const addLocationFailure = () => {
@@ -100,7 +100,7 @@ const deleteLocationFailure = () => {
   // go back to initial profile page
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
   $('.location-cards').show()
 }
 
@@ -118,7 +118,7 @@ const updateLocationFailure = () => {
   // go back to initial profile page
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
   $('.location-cards').show()
 }
 
@@ -136,7 +136,7 @@ const gotALocationFailure = () => {
   // go back to initial profile page
   api.getLocations(store)
     .then(commonUi.getLocationsSuccess)
-    .catch(commonUi.getLocationsFailure)
+    .catch(commonUi.failureMessage)
   $('.location-cards').show()
 }
 

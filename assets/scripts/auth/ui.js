@@ -52,8 +52,8 @@ const signInSuccess = responseData => {
 
   const authorizedOptionHtml = authorizedOptions()
 
-  $('.welcome-cards').append(welcomeHtml)
-  $('.sidenav').append(authorizedOptionHtml)
+  $('.welcome-cards').html(welcomeHtml)
+  $('.sidenav').html(authorizedOptionHtml)
 }
 
 const signOutSuccess = () => {
@@ -61,6 +61,8 @@ const signOutSuccess = () => {
   // empty non-landing contents
   $('.sidenav').empty()
   $('.welcome-cards').empty()
+  $('.authorized-form').empty()
+  $('.bokbulbok').empty()
 
   // go back to landing page
   $('.landing').show()

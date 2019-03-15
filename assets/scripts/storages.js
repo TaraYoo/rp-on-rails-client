@@ -7,7 +7,6 @@ const store = require('./store.js')
 const updateUserBokbulbok = () => {
   bokbulbokApi.getBokbulboks()
     .then(subStorage.storeBokbulboks)
-  console.log(store.user.bokbulboks)
 }
 
 module.exports = {

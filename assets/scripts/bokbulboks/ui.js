@@ -39,7 +39,7 @@ const addBokbulbokSuccess = responseData => {
   commonUi.emptyDynamic()
 
   // Show post-sign-in menus
-  $('.authorized-form').text('You added risk or reward ' + responseData.bokbulbok.id)
+  $('.authorized-form').text('You added risk or reward')
 
   setTimeout(() => {
     $('.authorized-form').empty()

@@ -62,8 +62,8 @@ const onSignOut = event => {
 }
 
 const addHandlers = () => {
-  $('#request-sign-up-btn').on('click', onSignUpRequested)
-  $('#request-sign-in-btn').on('click', onSignInRequested)
+  $('.request-sign-up-btn').on('click', onSignUpRequested)
+  $('.request-sign-in-btn').on('click', onSignInRequested)
   $('.requested-form').on('submit', '#sign-up-form', onSignUp)
   $('.requested-form').on('submit', '#sign-in-form', onSignIn)
   $('.sidenav').on('click', '#change-password-btn', changePasswordRequested)

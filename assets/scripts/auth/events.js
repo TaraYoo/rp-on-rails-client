@@ -5,6 +5,7 @@ const ui = require('./ui.js')
 const api = require('./api.js')
 const commonUi = require('../common-ui.js')
 const store = require('../store.js')
+const failures = require('../failure-message.js')
 
 const onSignUpRequested = event => {
   event.preventDefault()
@@ -49,9 +50,13 @@ const onChangePassword = event => {
   const form = event.target
   const formData = getFormFields(form)
 
-  api.changePassword(formData)
-    .then(ui.changePasswordSuccess)
-    .catch(commonUi.emptyDynamic)
+  if (store.user.email === 'demo@demo.com') {
+    failures.failureMessage('This is a demo account. You do not have access to this function.')
+  } else {
+    api.changePassword(formData)
+      .then(ui.changePasswordSuccess)
+      .catch(commonUi.emptyDynamic)
+  }
 }
 
 const onSignOut = event => {

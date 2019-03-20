@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const api = require('./api.js')
 const commonUi = require('../common-ui.js')
+const store = require('../store.js')
 
 const onSignUpRequested = event => {
   event.preventDefault()
@@ -56,9 +57,15 @@ const onChangePassword = event => {
 const onSignOut = event => {
   event.preventDefault()
 
-  api.signOut()
-    .then(ui.signOutSuccess)
-    .catch(commonUi.emptyDynamic)
+  if (store.user.email === 'demo@demo.com') {
+    api.demoSignOut()
+      .then(ui.demoSignOut)
+      .catch(commonUi.emptyDynamic)
+  } else {
+    api.signOut()
+      .then(ui.signOutSuccess)
+      .catch(commonUi.emptyDynamic)
+  }
 }
 
 const addHandlers = () => {

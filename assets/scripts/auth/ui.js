@@ -7,6 +7,7 @@ const signInForm = require('../templates/sign-in-form.handlebars')
 const welcomeTemplate = require('../templates/welcome-page.handlebars')
 const authorizedOptions = require('../templates/post-sign-menu.handlebars')
 const changePasswordForm = require('../templates/change-password-form.handlebars')
+const api = require('./api.js')
 
 const signUpRequested = () => {
   commonUi.emptyDynamic()
@@ -45,6 +46,8 @@ const signInSuccess = responseData => {
   const locations = store.user.locations
   const bokbulboks = store.user.bokbulboks
 
+  console.log(store.user.email)
+
   // get the post sign in template
   const welcomeHtml = welcomeTemplate({name: name,
     locations: locations,
@@ -68,6 +71,20 @@ const signOutSuccess = () => {
   $('.landing').show()
   // delete user info in store
   store.user = null
+}
+
+const demoSignOut = () => {
+  commonUi.emptyDynamic()
+  // empty non-landing contents
+  $('.sidenav').empty()
+  $('.welcome-cards').empty()
+  $('.authorized-form').empty()
+  $('.bokbulbok').empty()
+
+  // go back to landing page
+  $('.landing').show()
+  // delete user info in store
+  api.signOut()
 }
 
 const changePasswordRequest = () => {
@@ -125,5 +142,6 @@ module.exports = {
   signInSuccess,
   changePasswordRequest,
   changePasswordSuccess,
-  signOutSuccess
+  signOutSuccess,
+  demoSignOut
 }

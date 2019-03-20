@@ -52,9 +52,21 @@ const signOut = formData => {
   })
 }
 
+const demoSignOut = () => {
+  return $.ajax({
+    url: config.apiUrl + '/demo-sign-out',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    statusCode: failures.edgeStatuses
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  demoSignOut
 }

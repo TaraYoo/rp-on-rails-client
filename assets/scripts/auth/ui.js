@@ -49,6 +49,7 @@ const signInSuccess = responseData => {
   // delete all locations and bokbulboks for demo
   if (store.user.email === 'demo@demo.com') {
     api.demoSignOut()
+      .then(() => console.log('data wiped'))
   }
 
   // get the post sign in template

@@ -65,10 +65,22 @@ const updateBokbulbok = id => {
   })
 }
 
+const randomBokbulbok = () => {
+  return $.ajax({
+    url: config.apiUrl + '/random',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    statusCode: failures.edgeStatuses
+  })
+}
+
 module.exports = {
   getBokbulboks,
   getABokbulBok,
   addBokbulbok,
   deleteBokbulbok,
-  updateBokbulbok
+  updateBokbulbok,
+  randomBokbulbok
 }

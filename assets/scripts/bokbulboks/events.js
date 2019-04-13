@@ -32,10 +32,7 @@ const onAddBokbulbok = event => {
 
 const getRandomBokbulbok = event => {
   event.preventDefault()
-  const availableIds = []
-  store.user.bokbulboks.forEach(object => availableIds.push(object.id))
-  const targetId = availableIds[Math.floor(Math.random() * availableIds.length)]
-  api.getABokbulBok(targetId)
+  api.randomBokbulbok()
     .then(ui.getRandomBokbulbokSuccess)
 }
 

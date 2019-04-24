@@ -46,11 +46,6 @@ const signInSuccess = responseData => {
   const locations = store.user.locations
   const bokbulboks = store.user.bokbulboks
 
-  // delete all locations and bokbulboks for demo
-  if (store.user.email === 'demo@demo.com') {
-    api.demoSignOut()
-  }
-
   // get the post sign in template
   const welcomeHtml = welcomeTemplate({name: name,
     locations: locations,

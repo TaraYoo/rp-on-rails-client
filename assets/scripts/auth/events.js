@@ -36,6 +36,15 @@ const onSignIn = event => {
 
   api.signIn(formData)
     .then(ui.signInSuccess)
+    .then(() => {
+      if (store.user.email === 'demo@demo.com') {
+        api.demoSignOut()
+        api.demoSignIn()
+      }
+    })
+    .then(() => {
+      commonUi.getLocationsSuccess(store.user)
+    })
     .catch(commonUi.emptyDynamic)
 }
 

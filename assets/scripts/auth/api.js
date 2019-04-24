@@ -63,10 +63,22 @@ const demoSignOut = () => {
   })
 }
 
+const demoSignIn = () => {
+  return $.ajax({
+    url: config.apiUrl + '/demo-sign-in',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    statusCode: failures.edgeStatuses
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  demoSignOut
+  demoSignOut,
+  demoSignIn
 }
